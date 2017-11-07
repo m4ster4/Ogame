@@ -7,16 +7,16 @@ class DaneStatkow:
     attack=[]
     
     def __init__(self):
+        self.get_ship()
+        self.get_dziala()
+
+
+    def get_ship(self):
         with open("dane_statkow.txt", "r") as f_in:
             self.lines = filter(None, (line.rstrip() for line in f_in))
-    
-    
-    def printuj(self):
-        for c in self.lines:
-            print c.split(" ")
-#         L= self.lines[0].split(" ")
-#         print L
-            
+        self.addTab()
+
+
     def addTab(self):
         for c in self.lines:
             self.short.append(c.split(" ")[0])
@@ -24,13 +24,8 @@ class DaneStatkow:
             self.points.append(c.split(" ")[2])
             self.cover.append(c.split(" ")[3])
             self.attack.append(c.split(" ")[4])
-        print self.short
-        print self.name
-        print self.points
-        print self.cover
-        print self.attack
-        
-        
+
+
             
             
 Ds=DaneStatkow()
