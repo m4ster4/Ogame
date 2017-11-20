@@ -11,7 +11,7 @@ class Statek:
 
     
     def shoot(self,other_ship):
-        ship=Statek(other_ship)
+        # ship = Statek(other_ship)
         if self.atak < 0.01 * ship.oslona:
             return ""
         else:
@@ -27,15 +27,12 @@ class Statek:
             losowanie = random.random()
             if losowanie < wybuch:
                 other_ship.p_s = 0
-            
-            
-            
-        
-    
+
+
     def isDestroyed(self):
         if self.p_s > 0:
             return False
-        else: True
+        else: return True
 
     def stats(self):
         return self.skrot,self.nazwa,self.p_s,self.oslona,self.atak

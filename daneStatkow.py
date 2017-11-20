@@ -8,7 +8,7 @@ class DaneStatkow:
     
     def __init__(self):
         self.get_ship()
-        self.get_dziala()
+        # self.get_dziala()
 
 
     def get_ship(self):
