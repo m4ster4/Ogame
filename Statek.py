@@ -11,7 +11,7 @@ class Statek:
 
     
     def shoot(self,other_ship):
-        # ship = Statek(other_ship)
+        ship = Statek(other_ship)
         if self.atak < 0.01 * ship.oslona:
             return ""
         else:
@@ -20,14 +20,19 @@ class Statek:
 
     def hit(self,other_ship):
         other_ship.p_s-= self.atak-other_ship.oslona
-        other_ship.oslona = 0
+        if (other_ship.oslona - self.atak)< 0:
+            other_ship.oslona = 0
+        else:
+            other_ship.oslona = other_ship.oslona - self.atak
         indx = DaneStatkow.short.index(other_ship.skrot)
         if other_ship.p_s <0.7*int(DaneStatkow.points[indx]):
             wybuch = 1 - float((other_ship.p_s)/DaneStatkow.points[indx])
             losowanie = random.random()
             if losowanie < wybuch:
                 other_ship.p_s = 0
-
+    def szybkie_dziala(self,my_ship,other_ship):
+        for i in xrange(len(DaneStatkow.szybkie_dziala)):
+            pass
 
     def isDestroyed(self):
         if self.p_s > 0:

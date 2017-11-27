@@ -8,23 +8,24 @@ class Flota():
         self.ilosc = []
         self.skrot = []
         for c in self.lines[1:]:
-           self.statki.append(Statek(c.split()[0]))
-           # print c.split(" ")[0]
-           self.ilosc.append(int(c.split()[1]))
-        print self.statki, self.ilosc
+            temp = int(c.split()[1])
+            while temp > 1:
+                self.statki.append(Statek(c.split()[0]))
+                self.ilosc.append(int(c.split()[1]))
+
+                temp-=1
+            self.statki.append(Statek(c.split()[0]))
+            self.ilosc.append(int(c.split()[1]))
 
 
+        print len(self.statki)
 
 
-    
-        
-    
     def delete_hit(self):
         pass
 
     def check_opponent(self, flota):
         opponent = random.randint(0, (len(flota.statki)-1))
-        print opponent, flota.statki[opponent]
 
         if int(flota.ilosc[opponent]) != 0:
             return flota.statki[opponent]

@@ -5,6 +5,7 @@ class DaneStatkow:
     points=[]
     cover=[]
     attack=[]
+    szybkie_dziala=[]
     
     def __init__(self):
         self.get_ship()
@@ -24,6 +25,13 @@ class DaneStatkow:
             self.points.append(c.split(" ")[2])
             self.cover.append(c.split(" ")[3])
             self.attack.append(c.split(" ")[4])
+
+        with open("dane_statkow.txt", "r") as f_in:
+            self.lines = filter(None, (line.rstrip() for line in f_in))
+        for i in self.lines[1:]:
+            self.szybkie_dziala.append(i.split())
+        for el in self.szybkie_dziala:
+            print el
 
 
             
