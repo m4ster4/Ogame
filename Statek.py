@@ -37,7 +37,8 @@ class Statek:
     def isDestroyed(self):
         if self.p_s > 0:
             return False
-        else: return True
+        else:
+            return True
 
     def stats(self):
         return self.skrot,self.nazwa,self.p_s,self.oslona,self.atak
