@@ -34,8 +34,8 @@ class Statek:
         for i in xrange(len(DaneStatkow.szybkie_dziala)):
             pass
 
-    def isDestroyed(self):
-        if self.p_s > 0:
+    def isDestroyed(self,statek):
+        if statek.p_s > 0:
             return False
         else:
             return True

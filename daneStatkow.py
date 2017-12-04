@@ -10,6 +10,7 @@ class DaneStatkow:
     def __init__(self):
         self.get_ship()
         # self.get_dziala()
+        self.fast_guns()
 
 
     def get_ship(self):
@@ -26,13 +27,15 @@ class DaneStatkow:
             self.cover.append(c.split(" ")[3])
             self.attack.append(c.split(" ")[4])
 
-        with open("dane_statkow.txt", "r") as f_in:
-            self.lines = filter(None, (line.rstrip() for line in f_in))
-        for i in self.lines[1:]:
+    def fast_guns(self):
+        with open("szybkie_dziala.txt", "r") as f_in:
+            self.fast_lines = filter(None, (line.rstrip() for line in f_in))
+            # print self.fast_lines
+        for i in self.fast_lines[1:]:
             self.szybkie_dziala.append(i.split())
-        for el in self.szybkie_dziala:
-            print el
-
+        # for el in self.szybkie_dziala:
+        #     print el
+        print self.szybkie_dziala
 
             
             
