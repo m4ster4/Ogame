@@ -9,7 +9,6 @@ class DaneStatkow:
     
     def __init__(self):
         self.get_ship()
-        # self.get_dziala()
         self.fast_guns()
 
 
@@ -35,9 +34,9 @@ class DaneStatkow:
             self.szybkie_dziala.append(i.split())
         # for el in self.szybkie_dziala:
         #     print el
-        print self.szybkie_dziala
+        # print self.szybkie_dziala
 
             
-            
+
 Ds=DaneStatkow()
 Ds.addTab()
