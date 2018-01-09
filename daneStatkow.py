@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 class DaneStatkow:
     short=[]
     name=[]
@@ -32,9 +31,7 @@ class DaneStatkow:
             # print self.fast_lines
         for i in self.fast_lines[1:]:
             self.szybkie_dziala.append(i.split())
-        # for el in self.szybkie_dziala:
-        #     print el
-        # print self.szybkie_dziala
+
 
             
 

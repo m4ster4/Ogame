@@ -11,32 +11,41 @@ class Statek:
 
     
     def shoot(self,other_ship):
-        # ship = Statek(other_ship)
         if self.atak < 0.01 * other_ship.oslona:
-            return ""
+            return False
         else:
-            return self.hit(other_ship)
+            self.hit(other_ship)
+            return True
         
 
     def hit(self,other_ship):
-        other_ship.p_s-= self.atak-other_ship.oslona
-        print other_ship.p_s, "statek trafione", self.atak
-        if (other_ship.oslona - self.atak)< 0:
+        other_ship.p_s -= self.atak - other_ship.oslona
+        if (other_ship.oslona - self.atak) < 0:
             other_ship.oslona = 0
         else:
             other_ship.oslona = other_ship.oslona - self.atak
         indx = DaneStatkow.short.index(other_ship.skrot)
-        if other_ship.p_s <0.7*int(DaneStatkow.points[indx]):
-            wybuch = 1 - (float(other_ship.p_s)/float(DaneStatkow.points[indx]))
+        if other_ship.p_s < 0.7 * int(DaneStatkow.points[indx]):
+            explosion = 1 - (float(other_ship.p_s)/float(DaneStatkow.points[indx]))
             losowanie = random.random()
-            if losowanie < wybuch:
+            if losowanie < explosion:
                 other_ship.p_s = 0
 
-    def szybkie_dziala(self,my_ship,other_ship):
+    def szybkie_dzialaa(self,my_ship,other_ship):
         for i in xrange(len(DaneStatkow.szybkie_dziala)):
-            pass
+            try:
+                place_number = DaneStatkow.szybkie_dziala[i].index(my_ship)
+                line_number = i
+            except Exception:
+                pass
+            try:
+                place_number_other = DaneStatkow.szybkie_dziala[i].index(other_ship)
+                line_number_other = i
+            except Exception:
+                pass
+        return int(DaneStatkow.szybkie_dziala[line_number][line_number_other+1])
 
-    def isDestroyed(self,statek):
+    def isDestroyed(statek):
         if statek.p_s > 0:
             return False
         else:
