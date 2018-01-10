@@ -7,8 +7,8 @@ def press(button):
     if button == "EXIT":
         app.stop()
     if button == "RUN":
-        elo=Symulacja()
-        app.setLabel("wynik","WINNER:" +str(elo))
+        temp = Symulacja()
+        app.setLabel("wynik","WINNER:" +str(temp))
 
     else:
         z = app.getAllEntries()

@@ -2,6 +2,7 @@ from Flota import Flota
 
 
 def Symulacja():
+    """Funkcja jest symulacja wojny, jest 6 bitw"""
     F1 = Flota("flota_1.txt")
     F2 = Flota("flota_2.txt")
 
